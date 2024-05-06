@@ -1,5 +1,6 @@
 
 export interface Spell {
-    name: string;
+    index?: any;
+    name?: string;
   }
   

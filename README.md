@@ -7,6 +7,8 @@ This project is a React application bootstrapped with Create React App. It utili
 
 - **React Router DOM**: React Router DOM is used for client-side routing in the application. It enables navigation between different pages or components without a full page refresh.
 
+- **Material UI Icons**: Material UI Icons are used.
+
 ## Available Scripts
 
 In the project directory, you can run:
