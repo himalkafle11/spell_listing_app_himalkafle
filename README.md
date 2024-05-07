@@ -1,3 +1,6 @@
+# Spell Listing App
+
+## Technologies and Libraries
 
 This project is a React application bootstrapped with Create React App. It utilizes the following technologies and libraries:
 
@@ -11,15 +14,36 @@ This project is a React application bootstrapped with Create React App. It utili
 
 - **LocalStorage**: LocalStorage is utilized for storing spell data locally within the browser, providing a mechanism for data persistence across sessions.
 
-## Available Scripts
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js installed on your machine
+- NPM (Node Package Manager) or Yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/himalkafle11/spell_listing_app_himalkafle.git
+
+2. Navigate into the project directory:
+   cd spell_listing_app_himalkafle
+
+3. Install dependencies using NPM:
+   npm install
+
+4. Runs the app:
+   npm start
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm install`
+1. `npm install`
 
 Installs all the dependencies and project files.
 
-
-### `npm start`
+2. `npm start`
 
 Runs the app in the development mode.
