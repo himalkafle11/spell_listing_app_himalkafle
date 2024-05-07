@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 const BasicLayout = ({ children }: any) => {
   return (
@@ -11,7 +10,7 @@ const BasicLayout = ({ children }: any) => {
             D&D 5e API
           </Link>
           <Link to="/favourite-spells" className="md:text-xl font-semibold">
-            <BookmarkIcon /> Favourites
+            Favourites
           </Link>
         </div>
       </div>

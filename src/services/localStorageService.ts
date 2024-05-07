@@ -27,3 +27,19 @@ export const getFavouriteSpells = (): Spell[] => {
     return [];
   }
 };
+
+export const updateFavouriteSpell = (spell: Spell, isFavourite: boolean) => {
+  let favourites = localStorage.getItem("favouriteSpells");
+  if (!favourites) {
+    favourites = "[]";
+  }
+  let parsedFavourites = JSON.parse(favourites);
+  if (isFavourite) {
+    parsedFavourites.push(spell);
+  } else {
+    parsedFavourites = parsedFavourites.filter(
+      (favSpell: Spell) => favSpell.name !== spell.name
+    );
+  }
+  localStorage.setItem("favouriteSpells", JSON.stringify(parsedFavourites));
+};
