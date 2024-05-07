@@ -5,16 +5,19 @@ import getSingleSpellData from "../services/getSingleSpellData";
 import { Link, useParams } from "react-router-dom";
 import AddToFavouriteButton from "./addToFavouriteButton";
 import { addToFavouriteSpells } from "../services/localStorageService";
+import Loader from "./loader";
 
 const SingleSpellInformation = () => {
   const { spellName } = useParams<{ spellName: any }>();
   const [spellData, setSpellData] = useState<Spell | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await getSingleSpellData(spellName);
         setSpellData(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching spell data:", error);
       }
@@ -23,12 +26,14 @@ const SingleSpellInformation = () => {
     fetchData();
   }, [spellName]);
 
-  const currentSpell: Spell = { name: spellData?.name, index: spellData?.index };
-
+  const currentSpell: Spell = {
+    name: spellData?.name,
+    index: spellData?.index,
+  };
 
   const addToFavourites = (spell: Spell) => {
-    addToFavouriteSpells( spell);
-  }
+    addToFavouriteSpells(spell);
+  };
 
   return (
     <BasicLayout>
@@ -45,15 +50,26 @@ const SingleSpellInformation = () => {
             {spellData && spellData.name}
           </span>
         </div>
-        <AddToFavouriteButton onClick={() => addToFavourites(currentSpell)} />
-      </div>
-      <div className="flex flex-col flex-wrap gap-2">
-        {spellData && (
-          <div className="bg-gray-100 rounded-md p-6 border break-words">
-            <pre>{JSON.stringify(spellData, null, 5)}</pre>
-          </div>
+        {loading ? (
+          ""
+        ) : (
+          <AddToFavouriteButton
+            spell={currentSpell}
+            onClick={() => addToFavourites(currentSpell)}
+          />
         )}
       </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="flex flex-col flex-wrap gap-2">
+          {spellData && (
+            <div className="bg-gray-100 rounded-md p-6 break-words">
+              <pre>{JSON.stringify(spellData, null, 5)}</pre>
+            </div>
+          )}
+        </div>
+      )}
     </BasicLayout>
   );
 };

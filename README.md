@@ -9,6 +9,8 @@ This project is a React application bootstrapped with Create React App. It utili
 
 - **Material UI Icons**: Material UI Icons are used.
 
+- **LocalStorage**: LocalStorage is utilized for storing spell data locally within the browser, providing a mechanism for data persistence across sessions.
+
 ## Available Scripts
 
 In the project directory, you can run:
